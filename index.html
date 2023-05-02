@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera URL</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <img src="images/Credimovil.jpeg" alt="CrediMovíl" id="imgCredimovil">
+        <img src="images/mas_nomina.jpeg" alt="Más Nómina" id="imgMasNomina">
+    </header>
+    <div>
+        <h2>Genera tu liga para firmar paquete de disposición.</h2>
+        <hr>
+        <h4>Introduce el folio de la solicitud.</h4>
+        <label for="folio">Solicitud: </label>
+        <input type="text" id="folio" onblur="this.value = rellenarConCeros(this.value)">
+        <button id="generar">Obtener liga</button>
+        <div id="liga" hidden>
+            <br>
+            <label for="resultado">La liga para firma es: </label>
+            <span class="txtCopiar" id="resultado"></span>
+            <button id="copy-button" data-clipboard-target="#resultado">Copiar</button>
+            <br>
+            <br>
+            <label for="rfc">El RFC registrado en esta solicitud es: </label>
+            <span id="rfc"></span>            
+        </div>
+    </div>
+    <div id="nofirmaError" hidden>
+        <hr>
+        <h2 id="errPaqSF"></h2>
+        <p>Si desea regenerar el paquete para firmar, presione el siguiente botón y espere un par de minutos para volver a intentar obtener la liga: </p>
+        <br>
+        <button id="regenerateBtn">Regenerar</button>
+    </div>
+</body>
+</html>

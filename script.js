@@ -12,6 +12,7 @@ $(document).ready(function(){
     $('#generar').click(function(){
 
         var idSoli = $('#folio').val();
+        $('#folio').val('');
 
         $.ajax({
             type: 'POST',
@@ -27,6 +28,7 @@ $(document).ready(function(){
                         url: 'https://bff-mn-prod.masnominadigital.com/sol/' + idSoli,
                         success: function(msg2){
                             $('#liga').show();
+                            $('#resultado').attr('href','https://revision.prd.masnominadigital.com/?solicitud=' + idSoli + '&telefono=' + msg2.payload.cliente.telefonos.movil);
                             $('#resultado').text('https://revision.prd.masnominadigital.com/?solicitud=' + idSoli + '&telefono=' + msg2.payload.cliente.telefonos.movil);
                             $('#rfc').text(msg2.payload.cliente.rfc);
 

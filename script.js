@@ -44,10 +44,13 @@ $(document).ready(function(){
                     });
                 }
                 else if(estado == 'false'){
+                    $('#liga').hide();
                     alert('La solicitud no existe. Favor de validar');
+
                 }
                 else if(mensaje != '"Paquete en espera de firma."' && mensaje != '"Falla al generar el paquete de disposición sin firma."'){
-                    alert('La solicitud no esta en espera de firma (NOFIRMA)');
+                    $('#liga').hide();
+                    alert('La solicitud no está en espera de firma (NOFIRMA)');
                 }
                 else if(mensaje == '"Falla al generar el paquete de disposición sin firma."'){
                     alert('ERROR: La solicitud no genero el paquete de disposición para firmar.');
